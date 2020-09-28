@@ -32,6 +32,13 @@ span{
 img[alt="cat icon"]{
   padding-right: 50px;
 }
+
+nav{
+  background-color: Green;
+  opacity: 0.9;
+  padding: 5px;
+  font-size: 20px;
+}
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
   background-color: gray;
