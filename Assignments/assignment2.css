@@ -30,10 +30,7 @@ span{
 }
 
 img[alt="cat icon"]{
-  height: auto;
-  object-position: right;
-  object-position: bottom;
-  
+  padding-right: 50px;
 }
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
