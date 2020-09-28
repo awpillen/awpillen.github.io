@@ -15,7 +15,7 @@ div{
   margin-bottom: 50px;
 }
 
-span.a{
+span{
   width: 100px;
   height: 50px;
   padding-top: 5px;
@@ -27,30 +27,13 @@ span.a{
   border-width: 5px;
   background-color: Yellow;
 }
-span.b{
-  width: 100px;
-  height: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-style: Solid;
-  border-color: Blue;
-  border-width: 5px;
-  background-color: Yellow;
+
+.b{
   display: block;
+  position: relative;
 }
-span.c{
-  width: 100px;
-  height: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-style: Solid;
-  border-color: Blue;
-  border-width: 5px;
-  background-color: Yellow;
+
+.c{
   display: inline-block;
 }
 
@@ -72,18 +55,18 @@ img[alt="bird icon"]{
   top: 200px;
 }
 
-div[id=  positionMe]{
+div[id = positionMe]{
   background-color: orange;
 }
 
 nav{
   position: sticky;
-  top: 0px;
+  top: 0;
   display: block;
-  padding: 5px;
+  padding: 8px;
   font-size: 20px;
-  opacity: 90%;
-  background-color: Green;
+  opacity: .9;
+  background-color: green;
 }
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
