@@ -28,15 +28,31 @@ span{
   background-color: Yellow;
 }
 
-img[alt="cat icon"]{
-  padding-right: 50px;
+#cat{
+  position:fixed;
+  bottom: 0l
+  right: 0;
+}
+
+#dog{
+  position: relative;
+  left: 250px;
+  top: 200px;
+}
+
+#bird{
+  position: relative;
+  left: 250px;
+  top: 200px;
 }
 
 nav{
-  background-color: Green;
-  opacity: 0.9;
+  position: static;
+  top: 0px;
   padding: 5px;
   font-size: 20px;
+  opacity: 90%;
+  background-color: Green;
 }
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
