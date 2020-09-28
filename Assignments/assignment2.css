@@ -37,7 +37,7 @@ span{
   display: inline-block;
 }
 
-img[alt="cat icon"]{
+img[alt="cat"]{
   position:fixed;
   bottom: 0;
   right: 0;
