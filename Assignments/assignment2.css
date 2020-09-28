@@ -3,16 +3,55 @@ body {
   background-color: SkyBlue;
 }
 
-#igottabeme{
+.igottabeme{
    font-family: Arial, Helvetica, sans-serif;
  }
 
-p.classy{
+.classy{
     margin-left: 10px;
  }
 
 div{
   margin-bottom: 50px;
+}
+
+span.a{
+  width: 100px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: Solid;
+  border-color: Blue;
+  border-width: 5px;
+  background-color: Yellow;
+}
+span.b{
+  width: 100px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: Solid;
+  border-color: Blue;
+  border-width: 5px;
+  background-color: Yellow;
+  display: block;
+}
+span.c{
+  width: 100px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: Solid;
+  border-color: Blue;
+  border-width: 5px;
+  background-color: Yellow;
+  display: inline-block;
 }
 
 span{
