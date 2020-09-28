@@ -3,6 +3,9 @@ body {
   background-color: SkyBlue;
 }
 
+ igottabeme{
+   font: Arial;
+ }
 
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
