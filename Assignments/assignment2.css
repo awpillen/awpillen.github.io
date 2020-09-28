@@ -4,12 +4,12 @@ body {
   background-color: SkyBlue;
 }
 
-p.class[igottabeme]{
+igottabeme{
    font: Helvetica;
  }
 
- p.class[Classy]{
-   margin-left: 10px;
+classy{
+    margin-left: 10px;
  }
 
 div{
