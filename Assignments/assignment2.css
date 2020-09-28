@@ -54,27 +54,32 @@ span.c{
   display: inline-block;
 }
 
-.cat{
+img[alt="cat icon"]{
   position:fixed;
   bottom: 0l
   right: 0;
 }
 
-.dog{
+img[alt="dog icon"]{
+  position: relative;
+  left: -50px;
+  top: -150px;
+}
+
+img[alt="bird icon"]{
   position: relative;
   left: 250px;
   top: 200px;
 }
 
-.bird{
-  position: relative;
-  left: 250px;
-  top: 200px;
+div[id=  positionMe]{
+  background-color: orange;
 }
 
 nav{
   position: sticky;
   top: 0px;
+  display: block;
   padding: 5px;
   font-size: 20px;
   opacity: 90%;
