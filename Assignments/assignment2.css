@@ -28,6 +28,13 @@ span{
   border-width: 5px;
   background-color: Yellow;
 }
+
+img[alt="cat icon"]{
+  height: auto;
+  object-position: right;
+  object-position: bottom;
+  
+}
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
   background-color: gray;
