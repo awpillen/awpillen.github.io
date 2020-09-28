@@ -12,6 +12,22 @@ body {
    margin-right: 10px;
  }
 
+div{
+  margin-bottom: 50px;
+}
+
+span{
+  width: 100px;
+  height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: Solid;
+  border-color: Blue;
+  border-width: 5px;
+  background-color: Yellow;
+}
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
   background-color: gray;
