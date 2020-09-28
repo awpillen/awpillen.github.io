@@ -1,10 +1,15 @@
 /* --- put your css here --- */
 body {
+  color: black;
   background-color: SkyBlue;
 }
 
  igottabeme{
    font: Arial;
+ }
+
+ classy{
+   margin-left: 10px;
  }
 
 /* --- pre-existing css --- */
