@@ -115,41 +115,17 @@ function appendTableRow5 (tableobj, col1, col2, col3,col4,col5) {
 // ==================
 
 // 8. create "totals" row and column in a table
-
-let div3B = document.getElementById("3B");
-let table3B = createTable("table3B");
-div3B.appendChild(table3B);
-let p00 = 2;//try .innerText
-let p01 = 2;
-table3B.setAttribute("style", "border:1px solid black;")
-table3B.setAttribute("width", "100%")
-addrows(table3B,"Thingamabob","1.00","1","space");
-addrows(table3B,"Whachamacallit","2.00","2","space");
-addrows(table3B,"Doohickey","3.00","3","space");
-addrows(table3B,"Totals:",p00*p01,"space","space");
-
-// append to tableobj a 3-column table row
-function addrows (tableobj, col1, col2, col3, col4) {
-  let td1 = document.createElement("td");
-  let td2 = document.createElement("td");
-  let td3 = document.createElement("td");
-  let td4 = document.createElement("td");
-  // insert content into columns
-  td1.innerHTML = col1;
-  td2.innerHTML = col2;
-  td3.innerHTML = col3;
-  td4.innerHTML = col4;
-
-  // create table row DOM object
-  let tr = document.createElement("tr");
-  // append table divisions (columns) to table row
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  tr.appendChild(td4);
-  // append the row to the tbody element in the table
-  tableobj.children[0].appendChild(tr);
-}
+let div3b = document.getElementById("3B");
+let table3b = createTable("table3b");
+div3b.appendChild(table3b);
+table3b.setAttribute("border", "1");
+table3b.setAttribute("width", "100%");
+table3b.setAttribute("width", "100%");
+appendTableRow4(table3b,"Item","Price","Qty", "Totals");
+appendTableRow4(table3b,"Thingamabob","1.00","1", (1.00*1).toFixed(2));
+appendTableRow4(table3b,"Whachamacallit","2.00","2",(2.00*2).toFixed(2));
+appendTableRow4(table3b,"Doohickey","3.00","3",(3.00*3).toFixed(2));
+appendTableRow4(table3b,"Grand Total",(1.00+2.00+3.00).toFixed(2),1+2+3,((1.00*1)+(2.00*2)+(3.00*3)).toFixed(2));
 // Instructions
 // don't change table3A. it's just a template.
 // Use table03A to create table3B. Create new functions as in item 2, above.
