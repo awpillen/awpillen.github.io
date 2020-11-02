@@ -126,6 +126,7 @@ appendTableRow4(table3b,"Thingamabob","1.00","1", (1.00*1).toFixed(2));
 appendTableRow4(table3b,"Whachamacallit","2.00","2",(2.00*2).toFixed(2));
 appendTableRow4(table3b,"Doohickey","3.00","3",(3.00*3).toFixed(2));
 appendTableRow4(table3b,"Grand Total",(1.00+2.00+3.00).toFixed(2),1+2+3,((1.00*1)+(2.00*2)+(3.00*3)).toFixed(2));
+
 // Instructions
 // don't change table3A. it's just a template.
 // Use table03A to create table3B. Create new functions as in item 2, above.
