@@ -34,7 +34,7 @@ function loadClubDistances() {
 	if (localStorage.getItem("clubs")) {
 		clubs = JSON.parse(localStorage.getItem("clubs"));
 	}
-	// otherwise create new "clubs" array, using resetAllClubs()
+	// otherwise create new "clubs" array, using resetAllClubDistances()
 	else {
 		clubs = resetAllClubDistances();
 		clubs = JSON.parse(localStorage.getItem("clubs"));
@@ -80,17 +80,15 @@ function appendTableRows() {
 
 // navigate to "club ENTRY" screen (enter a new club, not a distance)
 function displayClubEntry() {
-	function displayClubEntry() {
 	let clubs = JSON.parse(localStorage.getItem("clubs"));
 	if(clubs.length < 14)
 		window.location.href = "clubEntry.html";
 	else
 		alert("Warning: \nyou are only allowed to carry 14 clubs in your golf bag in match play competition.");
-};
 }
+
 // navigate to "Distance Entry" screen (from one of the club "+" buttons)
 function displayClubDistanceEntryForm(c) {
-	let forundoing = c;
 	localStorage.setItem("club", c); // save chosen club
 	window.location.href = "clubDistanceEntry.html"; // redirect to entry form
 }
@@ -98,29 +96,12 @@ function displayClubDistanceEntryForm(c) {
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
 	if (localStorage.getItem("clubsUndo")) {
-let oldClubs = localStorage.getItem("clubs");
-let newClubs = localStorage.getItem("clubsUndo");
-localStorage.setItem("clubs", newClubs);
-localStorage.setItem("clubsUndo", oldClubs);
-}
-window.location.href = "clubDistanceList.html"; 
-	// create 2d global array, called "clubs" throughout app
-	// columns - 0: sortPosition, 1: clubAbbrev, 2: clubName,
-	// 3: avgDist, 4: minDist, 5: maxDist, 6: numOfShots,
-	// 7: loft/degrees, 8: typical/men, 9: typical/women
-
-	if(displayClubDistanceEntryForm.forundoing==0){
-		let clubs = [
-			[ 199, "Dr",  "Driver",   0, 0, 0, 0, 10.5, 230, 200]
-		];
+		let oldClubs = localStorage.getItem("clubs");
+		let newClubs = localStorage.getItem("clubsUndo");
+		localStorage.setItem("clubs", newClubs);
+		localStorage.setItem("clubsUndo", oldClubs);
 	}
-	// store the array in local storage
-	let str = JSON.stringify(clubs);
-	localStorage.setItem("clubs", str);
-	// and refresh screen
 	window.location.href = "clubDistanceList.html";
-
-
 }
 
 // create a new (default) "clubs" array
@@ -139,7 +120,7 @@ function resetAllClubDistances() {
 		[ 699, "6i",  "6 iron",   0, 0, 0, 0, 24.0, 150, 130],
 		[ 799, "7i",  "7 iron",   0, 0, 0, 0, 27.0, 140, 120],
 		[ 899, "8i",  "8 iron",   0, 0, 0, 0, 31.5, 130, 110],
-		[ 999, "9i",  "9 iron",   0, 0, 0, 0, 36.0, 120, 100],
+		// [ 999, "9i",  "9 iron",   0, 0, 0, 0, 36.0, 120, 100],
 		[1099, "Pw",  "Pitching", 0, 0, 0, 0, 41.0, 110,  90],
 		[1199, "Aw",  "Approach", 0, 0, 0, 0, 46.0, 100,  80],
 		[1299, "Gw",  "Gap",      0, 0, 0, 0, 51.0,  90,  70],
@@ -156,9 +137,7 @@ function resetAllClubDistances() {
 
 // navigate to "About" screen
 function displayAbout() {
-	// your code here
-	alert("ClubMeNow version 1.0.0");
-
+	window.location.href = "clubAbout.html";
 }
 
 // navigate to "Penalty Info" screen
