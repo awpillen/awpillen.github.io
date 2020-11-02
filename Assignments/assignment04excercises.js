@@ -246,60 +246,95 @@ appendTableRow4(table3b,"Grand Total",(1.00+2.00+3.00).toFixed(2),1+2+3,((1.00*1
               = "All the data you entered is correct!!!";
     }
 
-// 10. Create a more object-oriented form
-
-// Step 1. Create/append the DOM object
-let form00 = document.getElementById("form00");
-let table00 = createTable("table00");
-form00.appendChild(table00);
-
-// Step 2. Create an JS object array containing form info
-let formArray = [
-  {label: "First name:", inputType: "text", id: "first",
-    onkeyup: "validate();", errorId: "errFirst"},
-  {label: "Last name:",  inputType: "text", id: "last",
-    onkeyup: "validate();", errorId: "errLast" },
-  {label: "Email:",      inputType: "text", id: "email",
-    onkeyup: "validate();", errorId: "errEmail"},
-  {label: "User id:",    inputType: "text", id: "uid",
-    onkeyup: "validate();", errorId: "errUid"  },
-  {label: "Password:",   inputType: "password", id: "password",
-    onkeyup: "validate();", errorId: "errPassword"},
-  {label: "Confirm Password:", inputType: "password", id: "confirm",
-    onkeyup: "validate();", errorId: "errConfirm"}
-];
-
-// Step 3. loop through the JS object array to populate the form
-
-// your code here
-
-// append to tableobj a 3-column table row
-function appendTableRow3 (tableobj, col1, col2, col3) {
-  // create column (table division) DOM objects
-  let td1 = document.createElement("td");
-  let td2 = document.createElement("td");
-  let td3 = document.createElement("td");
-  // insert content into columns
-  td1.innerHTML = col1;
-  td2.innerHTML = col2;
-  td3.innerHTML = col3;
-  // create table row DOM object
-  let tr = document.createElement("tr");
-  // append table divisions (columns) to table row
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  // append the row to the tbody element in the table
-  tableobj.children[0].appendChild(tr);
-}
+    // 10. Create a more object-oriented form
+    // Step 1. Create/append the DOM object
+    let form00 = document.getElementById("form00"); //premade code
+    let table00 = createTable("table00"); //premade code
 
 
+    // Step 2. Create an JS object array containing form info
+    let formArray = [ //form array specifying the information values for the table
+        {
+            label: "First name:",
+            inputType: "text",
+            id: "first",
+            onkeyup: "validate();",
+            errorId: "errFirst"
+        },
+        {
+            label: "Last name:",
+            inputType: "text",
+            id: "last",
+            onkeyup: "validate();",
+            errorId: "errLast"
+        },
+        {
+            label: "Email:",
+            inputType: "text",
+            id: "email",
+            onkeyup: "validate();",
+            errorId: "errEmail"
+        },
+        {
+            label: "User id:",
+            inputType: "text",
+            id: "uid",
+            onkeyup: "validate();",
+            errorId: "errUid"
+        },
+        {
+            label: "Password:",
+            inputType: "password",
+            id: "password",
+            onkeyup: "validate();",
+            errorId: "errPassword"
+        },
+        {
+            label: "Confirm Password:",
+            inputType: "password",
+            id: "confirm",
+            onkeyup: "validate();",
+            errorId: "errConfirm"
+        }
+    ];
+    // Step 3. loop through the JS object array to populate the form
+    // your code here
+    // append to tableobj a 3-column table row
+    function appendTableRow3(tableobj, col1, col2, col3) { //use for appending tables for tablerow3 premade code
+        // create column (table division) DOM objects
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        // insert content into columns
+        td1.innerHTML = col1;
+        td2.innerHTML = col2;
+        td3.innerHTML = col3;
+        // create table row DOM object
+        let tr = document.createElement("tr");
+        // append table divisions (columns) to table row
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        // append the row to the tbody element in the table
+        tableobj.children[0].appendChild(tr);
+    }
+    // return a DOM object containing an empty table (with tbody element)
+    function createTable(id) { //create table function for applying values
+        let table = document.createElement("table"); //find table div and apply values
+        table.setAttribute("id", id); //apply attributes
+        let tbody = document.createElement("tbody"); //create table
+        table.appendChild(tbody); //append table
+        return table; //return table value
+    }
 
-// return a DOM object containing an empty table (with tbody element)
-function createTable(id) {
-  let table = document.createElement("table");
-  table.setAttribute("id", id);
-  let tbody = document.createElement("tbody");
-  table.appendChild(tbody);
-  return table;
-}
+
+    let fiveb = document.getElementById("5B"); //call 5b div and create fiveb value
+    let table5b = createTable("table5b") //create table5b
+    form00.appendChild(table00); //append table00
+    fiveb.appendChild(table5b); //have fiveb append table5b
+
+    for (i in formArray) { //loop for length of formArray
+        table5b.setAttribute("style", "border:1px solid black;") //apply style
+        table5b.setAttribute("width", "100%") //set width of table
+        appendTableRow5(table5b, formArray[i].label, formArray[i].inputType, formArray[i].id, formArray[i].onkeyup, formArray[i].errorId); //apply table values pulling from tablearray using the appendTableRow5 made earlier in the code.
+    }
