@@ -80,7 +80,13 @@ function appendTableRows() {
 
 // navigate to "club ENTRY" screen (enter a new club, not a distance)
 function displayClubEntry() {
-	window.location.href = "clubEntry.html";
+	function displayClubEntry() {
+	let clubs = JSON.parse(localStorage.getItem("clubs"));
+	if(clubs.length < 14)
+		window.location.href = "clubEntry.html";
+	else
+		alert("Warning: \nyou are only allowed to carry 14 clubs in your golf bag in match play competition.");
+};
 }
 // navigate to "Distance Entry" screen (from one of the club "+" buttons)
 function displayClubDistanceEntryForm(c) {
@@ -91,8 +97,13 @@ function displayClubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-        // your code here !
-	let tblbody = document.getElementById('clubTable').children[0];
+	if (localStorage.getItem("clubsUndo")) {
+let oldClubs = localStorage.getItem("clubs");
+let newClubs = localStorage.getItem("clubsUndo");
+localStorage.setItem("clubs", newClubs);
+localStorage.setItem("clubsUndo", oldClubs);
+}
+window.location.href = "clubDistanceList.html"; 
 	// create 2d global array, called "clubs" throughout app
 	// columns - 0: sortPosition, 1: clubAbbrev, 2: clubName,
 	// 3: avgDist, 4: minDist, 5: maxDist, 6: numOfShots,
