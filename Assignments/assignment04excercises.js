@@ -115,18 +115,52 @@ function appendTableRow5 (tableobj, col1, col2, col3,col4,col5) {
 // ==================
 
 // 8. create "totals" row and column in a table
-let div3b = document.getElementById("3B");
-let table3b = createTable("table3b");
-div3b.appendChild(table3b);
-table3b.setAttribute("border", "1");
-table3b.setAttribute("width", "100%");
-table3b.setAttribute("width", "100%");
-appendTableRow4(table3b,"Item","Price","Qty", "Totals");
-appendTableRow4(table3b,"Thingamabob","1.00","1", (1.00*1).toFixed(2));
-appendTableRow4(table3b,"Whachamacallit","2.00","2",(2.00*2).toFixed(2));
-appendTableRow4(table3b,"Doohickey","3.00","3",(3.00*3).toFixed(2));
-appendTableRow4(table3b,"Grand Total",(1.00+2.00+3.00).toFixed(2),1+2+3,((1.00*1)+(2.00*2)+(3.00*3)).toFixed(2));
+let div3B = document.getElementById("3B"); //call div 3B and apply its value
+let table3A = document.getElementById("3A"); //call values from table 3A
+let table3B = createTable("table3B"); //create table 3B
+div3B.appendChild(table3B); //append div to table
 
+
+const p00 = parseInt(table3A.children[0].children[0].children[1].children[1].innerHTML); //call value from original table
+const p01 = parseInt(table3A.children[0].children[0].children[2].children[1].innerHTML); //call value from original table
+const p02 = parseInt(table3A.children[0].children[0].children[3].children[1].innerHTML); //call value from original table
+const p10 = parseInt(table3A.children[0].children[0].children[1].children[2].innerHTML); //call value from original table
+const p11 = parseInt(table3A.children[0].children[0].children[2].children[2].innerHTML); //call value from original table
+const p12 = parseInt(table3A.children[0].children[0].children[3].children[2].innerHTML); //call value from original table
+table3B.setAttribute("style", "border:1px solid black;"); //set style
+table3B.setAttribute("width", "100%"); //set size
+addrows(table3B, "item", "price", "qty", "Price * Qty"); //apply toprow values
+addrows(table3B, "Thingamabob", "1.00", "1", p00 * p10); //apply secondrow values
+addrows(table3B, "Whachamacallit", "2.00", "2", p01 * p11); //apply thridrow values
+addrows(table3B, "Doohickey", "3.00", "3", p02 * p12); //apply fourthrow values
+addrows(table3B, "Totals:", p00 + p01 + p02 + ".00", p10 + p11 + p12, p02 * p12 + p01 * p11 + p00 * p10); //apply fithrow values
+// append to tableobj a 3-column table row
+function addrows(tableobj, coltop, col1, col2, col3, col4) { //begin function for application of table values
+    let td0 = document.createElement("td"); //create column
+    let td1 = document.createElement("td"); //create column
+    let td2 = document.createElement("td"); //create column
+    let td3 = document.createElement("td"); //create column
+    let td4 = document.createElement("td"); //create new column
+    // insert content into columns
+    td0.innerHTML = coltop; //apply external values
+    td1.innerHTML = col1; //apply external values
+    td2.innerHTML = col2; //apply external values
+    td3.innerHTML = col3; //apply external values
+    td4.innerHTML = col4; //apply external values
+    td0.setAttribute("Style", "border:1px solid black;"); //set box for each point
+    td1.setAttribute("Style", "border:1px solid black;"); //set box for each point
+    td2.setAttribute("Style", "border:1px solid black;"); //set box for each point
+    td3.setAttribute("Style", "border:1px solid black;"); //set box for each point
+    td4.setAttribute("Style", "border:1px solid black;"); //set box for each point
+    // create table row DOM object
+    let tr = document.createElement("tr"); //call tr
+    // append table divisions (columns) to table row
+    tr.appendChild(td0); //append row
+    tr.appendChild(td1); //append row
+    tr.appendChild(td2); //append row
+    tr.appendChild(td3); //append row
+    // append the row to the tbody element in the table
+    tableobj.children[0].appendChild(tr); //append tableobje
 // Instructions
 // don't change table3A. it's just a template.
 // Use table03A to create table3B. Create new functions as in item 2, above.
