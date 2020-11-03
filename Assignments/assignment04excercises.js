@@ -339,4 +339,3 @@ appendTableRow4(table3b,"Grand Total",(1.00+2.00+3.00).toFixed(2),1+2+3,((1.00*1
         table5b.setAttribute("width", "100%") //set width of table
         appendTableRow5(table5b, formArray[i].label, formArray[i].inputType, formArray[i].id, formArray[i].onkeyup, formArray[i].errorId); //apply table values pulling from tablearray using the appendTableRow5 made earlier in the code.
     }
-  ];
