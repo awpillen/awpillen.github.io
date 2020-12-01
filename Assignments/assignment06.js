@@ -104,23 +104,23 @@ function updateLoansArray() {
    let tracker = true; //used to see if there are any errors with the constraints above
 
    if (!yearcontroller.test($(`#loan_year01`).val())) { //if yearcontroller does not pass
-       tracker = false; //set to false
-       alert("error in year field"); //prompt user with incorrect value
+       tracker = false; //set tracker to false
+       alert("error in year field");
    }
 
-   for (i = 1; i < 6; i++) { //loop through full amount field
-       if (!amountcontroller.test($(`#loan_amt0${i}`).val())) { //if amountcontrolelr is not passed
-           tracker = false; //set to false
-           alert("error in amount field in box: " + i); //prompt user with error in boxes
+   for (i = 1; i < 6; i++) { //loop all of amount field
+       if (!amountcontroller.test($(`#loan_amt0${i}`).val())) { //if amountcontroller is not passed
+           tracker = false; //set tracker to false
+           alert("error in amount field in box: " + i);
        }
    }
 
    if (!integercontroller.test($(`#loan_int01`).val())) { //if integercontroller is not passed
-       tracker = false; //set to false
-       alert("error in interest rate field"); //prompt user with error in interest rate field.
+       tracker = false; //set tracker to false
+       alert("error in interest rate field");
    }
 
-   if (tracker) { //if all previous operations pass with flying colors execute follwing action
+   if (tracker) { //if all previous operations pass execute follwing action
        loans[0].loan_year = parseInt($("#loan_year01").val()); //pass the year value from the input box
        for (var i = 1; i < 5; i++) { //loop for the rest ofthe input field
            loans[i].loan_year = loans[0].loan_year + i; //apply value to loans adding i for proper input
