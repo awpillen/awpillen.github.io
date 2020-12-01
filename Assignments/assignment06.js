@@ -1,7 +1,3 @@
-// --- global variables ---
-//var myTab = document.getElementById("loan_table");
-//alert(myTab.rows[1].cells[0].innerHTML);
-
 var loans = [{
        loan_year: 2020,
        loan_amount: 10000.00,
@@ -32,37 +28,36 @@ var loans = [{
 
 
 
-// --- function: loadDoc() ---
 $(document).ready(function() {
 
-   // pre-fill defaults for first loan year which has since been modified to work using jquery
+   // populate default values for first loan year
    var defaultYear = loans[0].loan_year;
-   $("#loan_year0" + 1).val(defaultYear++); //swapped document.getElementById to $ and using # to find the ID
+   $("#loan_year0" + 1).val(defaultYear++);
    var defaultLoanAmount = loans[0].loan_amount;
-   $("#loan_amt0" + 1).val(defaultLoanAmount.toFixed(2)); //swapped document.getElementById to $ and using # to find the ID
+   $("#loan_amt0" + 1).val(defaultLoanAmount.toFixed(2));
    var defaultInterestRate = loans[0].loan_int_rate;
-   $("#loan_int0" + 1).val(defaultInterestRate); //swapped document.getElementById to $ and using # to find the ID
+   $("#loan_int0" + 1).val(defaultInterestRate);
    var loanWithInterest = loans[0].loan_amount * (1 + loans[0].loan_int_rate);
-   $("#loan_bal0" + 1).text(toMoney(loanWithInterest)); //swapped document.getElementById to $ and using # to find the ID
+   $("#loan_bal0" + 1).text(toMoney(loanWithInterest));
 
-   // pre-fill defaults for other loan years which has been modified to function with jquery
+   // populate default values for other loan years
    for (let i = 2; i < 6; i++) {
-       $(`#loan_year0${i}`).val(defaultYear++); //for every value at position i with id of loan_year0 change the value to the default year +1 going down
+       $(`#loan_year0${i}`).val(defaultYear++);
        $(`#loan_year0${i}`).attr("disabled", "true"); //set all year values except the first one to disabled
-       $(`#loan_year0${i}`).css({
+       $(`#loan_year0${i}`).css({ //setting colors
            "backgroundColor": "grey",
            "color": "white"
-       }); //set the disabled years to have a gray background with white text
-       $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2)); //apply the same 10,000 dollar value to the full loan_amt0 id
-       $(`#loan_int0${i}`).val(defaultInterestRate); //apply the default interest rate all along the interest rate column and anything with the id of loan_int0
-       $(`#loan_int0${i}`).attr("disabled", "true"); //disable all id's with the loan_int0 value except the first one
-       $(`#loan_int0${i}`).css({
+       });
+       $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2)); //apply 10,000 dollar value
+       $(`#loan_int0${i}`).val(defaultInterestRate); //apply the default interest rate
+       $(`#loan_int0${i}`).attr("disabled", "true");
+       $(`#loan_int0${i}`).css({ //setting colors
            "backgroundColor": "grey",
            "color": "white"
-       }); //set all values with the loan_int0 id to a background of gray and a text color of white.
+       });
        loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
-       $("#loan_bal0" + i).text(toMoney(loanWithInterest)); //simply swapped the document.getElementById to a $ and threw in a # to seek the id tag
-   } // end: "for" loop
+       $("#loan_bal0" + i).text(toMoney(loanWithInterest));
+   }
 
    $("input[type=text]").focus(function() {
        $(this).select();
@@ -73,13 +68,13 @@ $(document).ready(function() {
        updateLoansArray();
    });
 
-   // set focus to first year: messes up codepen
-   // $("#loan_year01").focus();
+   // set focus to the first year
 
-}); // end: function loadDoc()
+});
 
 // -------------------------------------------------------
 
+//toComma function
 function toComma(value) {
    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -87,26 +82,26 @@ function toComma(value) {
 let toMoney = (value) => {
    return `\$${toComma(value.toFixed(2))}`;
 }
-let savedata = () => { //begin savedata method
-   localStorage.setItem(`as06`, JSON.stringify(loans)); //save all necessary data to be in local storage
+let savedata = () => {
+   localStorage.setItem(`as06`, JSON.stringify(loans)); //save all data to be in the local storage
 }
 
-let loaddata = () => { //begin loadata method
-   if (localStorage.getItem(`as06`) != null) { //if there is on-device data
-       loans = JSON.parse(localStorage.getItem(`as06`)); //apply values from the saved data to loans
-       updateForm(); //apply values to what is seen
-   } else { //if there is no on device data
-       alert("Error: no saved values"); //alert user to lack of on device data
+let loaddata = () => { //begin loadata
+   if (localStorage.getItem(`as06`) != null) {
+       loans = JSON.parse(localStorage.getItem(`as06`));
+       updateForm();
+   } else {
+       alert("Error: no saved values");
    }
 }
 
 function updateLoansArray() {
 
-   //the following values will controll the ability for a value to be entered.
-   let yearcontroller = /^(19|20)\d{2}$/; //checks if the value is a number and within 1899 and 2099
-   let amountcontroller = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/; //checks if the value is a number and above 1 whole dollar
-   let integercontroller = /^(0|)+(.[0-9]{1,5})?$/; //checks to ensure the value is a number is below 1.0
-   let tracker = true; //used to see if there is anything wrong with the constraints listed above
+   //the following values will determine the ability for a value to be entered.
+   let yearcontroller = /^(19|20)\d{2}$/; //checks if the value is a real number and in the range of 1899-2099
+   let amountcontroller = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/; //checks if the value is a real number and above 1
+   let integercontroller = /^(0|)+(.[0-9]{1,5})?$/; //checks to ensure the value is a real number is below 1.0
+   let tracker = true; //used to see if there are any errors with the constraints above
 
    if (!yearcontroller.test($(`#loan_year01`).val())) { //if yearcontroller does not pass
        tracker = false; //set to false
@@ -171,9 +166,9 @@ var app = angular.module('appdata', []); //create and initialize app using angul
 app.controller('alldata', function($scope) { //in the controller field of the html and everything within the alldata field
    $scope.payments = []; //find the payments h2
 
-   $scope.populate = function() { //begin populate function
+   $scope.populate = function() { //start population function
 
-       updateForm(); //update what is visible
+       updateForm(); //update the form
 
        let endprice = loanWithInterest; //initialize an endprice value using loanwithinterest
        let interestrate = loans[0].loan_int_rate; //initialize an interestrate value based on loan in rate
